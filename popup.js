@@ -4,6 +4,10 @@ import {
   getMetricState,
   getPageContext
 } from "./lib/core.js";
+import {
+  loadReloadPreference as loadStoredReloadPreference,
+  saveReloadPreference as saveStoredReloadPreference
+} from "./lib/preferences.js";
 
 const DATA_TYPES = [
   {
@@ -344,6 +348,37 @@ async function clearSelectedData() {
   }
 }
 
+async function loadReloadPreference() {
+  if (!globalThis.chrome?.storage?.local) {
+    return;
+  }
+
+  elements.reloadAfterClear.disabled = true;
+  try {
+    elements.reloadAfterClear.checked =
+      await loadStoredReloadPreference(chrome.storage.local);
+  } catch (error) {
+    console.error("ClearCache: 读取刷新偏好失败", error);
+  } finally {
+    elements.reloadAfterClear.disabled = false;
+  }
+}
+
+async function saveReloadPreference() {
+  if (!globalThis.chrome?.storage?.local) {
+    return;
+  }
+
+  try {
+    await saveStoredReloadPreference(
+      chrome.storage.local,
+      elements.reloadAfterClear.checked
+    );
+  } catch (error) {
+    console.error("ClearCache: 保存刷新偏好失败", error);
+  }
+}
+
 function toggleAll() {
   const checkboxes = [...document.querySelectorAll("[data-storage-id]")];
   const shouldSelect = !checkboxes.every((checkbox) => checkbox.checked);
@@ -365,6 +400,12 @@ elements.aboutDialog.addEventListener("click", (event) => {
 elements.refreshButton.addEventListener("click", readStatistics);
 elements.selectAllButton.addEventListener("click", toggleAll);
 elements.clearButton.addEventListener("click", clearSelectedData);
+elements.reloadAfterClear.addEventListener("change", saveReloadPreference);
 
-createStorageRows();
-readStatistics();
+async function initialize() {
+  createStorageRows();
+  await loadReloadPreference();
+  await readStatistics();
+}
+
+initialize();

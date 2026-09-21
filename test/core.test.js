@@ -8,6 +8,11 @@ import {
   getMetricState,
   getPageContext
 } from "../lib/core.js";
+import {
+  loadReloadPreference,
+  RELOAD_AFTER_CLEAR_KEY,
+  saveReloadPreference
+} from "../lib/preferences.js";
 
 const projectRoot = new URL("../", import.meta.url);
 
@@ -31,6 +36,23 @@ test("buildRemovalData 仅保留 browsingData 支持的类型", () => {
   );
 });
 
+test("刷新偏好可以恢复并保存勾选状态", async () => {
+  let savedValue;
+  const storageArea = {
+    async get(defaults) {
+      assert.deepEqual(defaults, { [RELOAD_AFTER_CLEAR_KEY]: false });
+      return { [RELOAD_AFTER_CLEAR_KEY]: true };
+    },
+    async set(value) {
+      savedValue = value;
+    }
+  };
+
+  assert.equal(await loadReloadPreference(storageArea), true);
+  await saveReloadPreference(storageArea, false);
+  assert.deepEqual(savedValue, { [RELOAD_AFTER_CLEAR_KEY]: false });
+});
+
 test("统计文案区分数量和无法统计", () => {
   assert.equal(formatMetric({ available: true, count: 3 }, "个"), "3 个");
   assert.equal(formatMetric({ available: true, count: 0 }, "个"), "0 个");
@@ -50,7 +72,8 @@ test("Manifest 使用最小权限集合并包含图标", async () => {
     "activeTab",
     "browsingData",
     "cookies",
-    "scripting"
+    "scripting",
+    "storage"
   ]);
   assert.deepEqual(manifest.host_permissions.sort(), [
     "http://*/*",

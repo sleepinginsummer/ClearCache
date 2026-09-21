@@ -1,14 +1,15 @@
 {
   "manifest_version": 3,
   "name": "ClearCache",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Inspect and selectively clear storage for the current website.",
   "minimum_chrome_version": "96",
   "permissions": [
     "activeTab",
     "browsingData",
     "cookies",
-    "scripting"
+    "scripting",
+    "storage"
   ],
   "host_permissions": [
     "http://*/*",

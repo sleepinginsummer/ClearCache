@@ -1,11 +1,11 @@
 {
   "name": "clear-cache-extension",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "private": true,
   "type": "module",
   "scripts": {
     "test": "node --test",
-    "check": "node --check popup.js && node --check lib/core.js"
+    "check": "node --check popup.js && node --check lib/core.js && node --check lib/preferences.js"
   },
   "engines": {
     "node": ">=18"

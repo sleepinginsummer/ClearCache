@@ -35,6 +35,7 @@ npm run check
 | --- | --- |
 | `activeTab` | 用户点击扩展后临时读取当前网站的统计信息 |
 | `scripting` | 在当前页面统计或清理页面级存储 |
+| `storage` | 在本机保存“清理后刷新页面”的勾选状态 |
 | `browsingData` | 按当前 origin 清理所选浏览数据 |
 | `cookies` | 统计当前主机各路径可访问的 Cookie，包括 `HttpOnly` Cookie |
 | `http://*/*`、`https://*/*` | 允许 Cookie API 查询任意当前网站；数据仍只在弹窗打开时读取 |
@@ -46,6 +47,7 @@ npm run check
 - [Chrome browsingData API](https://developer.chrome.com/docs/extensions/reference/api/browsingData)
 - [Chrome activeTab permission](https://developer.chrome.com/docs/extensions/develop/concepts/activeTab)
 - [Chrome cookies API](https://developer.chrome.com/docs/extensions/reference/api/cookies)
+- [Chrome storage API](https://developer.chrome.com/docs/extensions/reference/api/storage)
 
 界面中的操作图标遵循 [Lucide](https://lucide.dev/) 图标设计，Lucide 使用 ISC License。
 
