@@ -45,6 +45,10 @@ const DATA_TYPES = [
 ];
 
 const elements = {
+  aboutButton: document.querySelector("#about-button"),
+  aboutCloseButton: document.querySelector("#about-close-button"),
+  aboutDialog: document.querySelector("#about-dialog"),
+  aboutVersion: document.querySelector("#about-version"),
   clearButton: document.querySelector("#clear-button"),
   refreshButton: document.querySelector("#refresh-button"),
   reloadAfterClear: document.querySelector("#reload-after-clear"),
@@ -349,6 +353,15 @@ function toggleAll() {
   updateSelectionState();
 }
 
+elements.aboutVersion.textContent =
+  globalThis.chrome?.runtime?.getManifest?.().version || elements.aboutVersion.textContent;
+elements.aboutButton.addEventListener("click", () => elements.aboutDialog.showModal());
+elements.aboutCloseButton.addEventListener("click", () => elements.aboutDialog.close());
+elements.aboutDialog.addEventListener("click", (event) => {
+  if (event.target === elements.aboutDialog) {
+    elements.aboutDialog.close();
+  }
+});
 elements.refreshButton.addEventListener("click", readStatistics);
 elements.selectAllButton.addEventListener("click", toggleAll);
 elements.clearButton.addEventListener("click", clearSelectedData);

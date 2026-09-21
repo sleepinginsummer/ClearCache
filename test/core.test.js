@@ -58,3 +58,8 @@ test("Manifest 使用最小权限集合并包含图标", async () => {
     assert.ok(icon.length > 0);
   }
 });
+
+test("关于窗口包含项目 GitHub 地址", async () => {
+  const popup = await readFile(new URL("popup.html", projectRoot), "utf8");
+  assert.match(popup, /https:\/\/github\.com\/sleepinginsummer\/ClearCache/);
+});

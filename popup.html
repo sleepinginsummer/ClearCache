@@ -18,11 +18,19 @@
           <h1 id="app-title">ClearCache</h1>
           <p id="site-label">正在读取当前网站...</p>
         </div>
-        <button id="refresh-button" class="icon-button" type="button" aria-label="重新统计" title="重新统计">
-          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <path d="M20 12a8 8 0 1 1-2.34-5.66L20 8M20 4v4h-4"/>
-          </svg>
-        </button>
+        <div class="header-actions">
+          <button id="refresh-button" class="icon-button" type="button" aria-label="重新统计" title="重新统计">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M20 12a8 8 0 1 1-2.34-5.66L20 8M20 4v4h-4"/>
+            </svg>
+          </button>
+          <button id="about-button" class="icon-button" type="button" aria-label="关于 ClearCache" title="关于">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <circle cx="12" cy="12" r="9"/>
+              <path d="M12 11v5M12 8h.01"/>
+            </svg>
+          </button>
+        </div>
       </header>
 
       <div id="notice" class="notice" role="status" aria-live="polite" hidden></div>
@@ -48,6 +56,32 @@
         </button>
       </footer>
     </main>
+
+    <dialog id="about-dialog" class="about-dialog" aria-labelledby="about-title">
+      <header class="about-header">
+        <div>
+          <p class="about-eyebrow">关于</p>
+          <h2 id="about-title">ClearCache</h2>
+        </div>
+        <button id="about-close-button" class="icon-button" type="button" aria-label="关闭关于窗口" title="关闭">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M18 6 6 18M6 6l12 12"/>
+          </svg>
+        </button>
+      </header>
+      <dl class="about-details">
+        <div>
+          <dt>版本</dt>
+          <dd id="about-version">1.0.4</dd>
+        </div>
+        <div>
+          <dt>GitHub</dt>
+          <dd>
+            <a href="https://github.com/sleepinginsummer/ClearCache" target="_blank" rel="noreferrer">github.com/sleepinginsummer/ClearCache</a>
+          </dd>
+        </div>
+      </dl>
+    </dialog>
     <script type="module" src="popup.js"></script>
   </body>
 </html>

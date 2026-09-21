@@ -51,7 +51,7 @@ input:focus-visible {
 
 .app-header {
   display: grid;
-  grid-template-columns: 40px minmax(0, 1fr) 40px;
+  grid-template-columns: 40px minmax(0, 1fr) auto;
   align-items: center;
   gap: 12px;
   padding: 12px 16px;
@@ -111,6 +111,11 @@ h2 {
   font-size: 12px;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.header-actions {
+  display: flex;
+  gap: 2px;
 }
 
 .icon-button {
@@ -318,6 +323,80 @@ h2 {
 .primary-button:disabled {
   cursor: not-allowed;
   opacity: 0.45;
+}
+
+.about-dialog {
+  width: calc(100% - 32px);
+  max-width: 358px;
+  padding: 0;
+  border: 1px solid var(--border-strong);
+  border-radius: 7px;
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: 0 16px 40px rgb(0 0 0 / 45%);
+}
+
+.about-dialog::backdrop {
+  background: rgb(5 8 10 / 72%);
+}
+
+.about-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 14px 12px 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.about-header h2 {
+  margin-top: 2px;
+  color: var(--text);
+  font-size: 16px;
+  text-transform: none;
+}
+
+.about-eyebrow {
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+.about-details {
+  display: grid;
+  gap: 14px;
+  margin: 0;
+  padding: 16px;
+}
+
+.about-details div {
+  display: grid;
+  gap: 4px;
+}
+
+.about-details dt {
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+.about-details dd {
+  margin: 0;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 12px;
+}
+
+.about-details a {
+  color: #8ce5af;
+  overflow-wrap: anywhere;
+  text-underline-offset: 3px;
+}
+
+.about-details a:hover {
+  color: #b2f0cb;
+}
+
+.about-details a:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+  border-radius: 2px;
 }
 
 @media (prefers-reduced-motion: reduce) {
