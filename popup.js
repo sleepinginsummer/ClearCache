@@ -134,9 +134,7 @@ function formatStatistic(id, metric) {
     const hasData = metric.cacheCount > 0 || metric.entryCount > 0;
     return {
       state: hasData ? "present" : "empty",
-      text: hasData
-        ? `有 · ${metric.cacheCount} 库 / ${metric.entryCount} 项`
-        : "0 库 / 0 项"
+      text: `${metric.cacheCount} 库 / ${metric.entryCount} 项`
     };
   }
 
