@@ -10,7 +10,7 @@ ClearCache 是一个 Chrome / Edge Manifest V3 扩展，用于统计并选择性
 - 可选在清理完成后刷新当前页面
 - 用户点击扩展后，读取并处理当前 HTTP 或 HTTPS 网站的数据
 
-Chrome 不提供按网站查询 HTTP 缓存条目数量的接口，因此扩展会将其显示为“无法统计”，但仍支持按当前 origin 请求清理。Cookie 的清理范围遵循 Chrome `browsingData` API 规则，可能覆盖同一可注册域。
+Chrome 不提供按网站查询 HTTP 缓存条目数量的接口，因此扩展会将其显示为“数量未知”，但仍支持按当前 origin 请求清理。Cookie 的清理范围遵循 Chrome `browsingData` API 规则，可能覆盖同一可注册域。
 
 ## 本地安装
 

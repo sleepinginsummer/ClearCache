@@ -179,7 +179,7 @@ async function inspectPageStorage() {
   };
 
   const statistics = {
-    cache: unavailable("无法统计"),
+    cache: unavailable("数量未知"),
     localStorage: countStorage(window.localStorage),
     sessionStorage: countStorage(window.sessionStorage)
   };
