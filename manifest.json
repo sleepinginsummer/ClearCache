@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "ClearCache",
+  "version": "1.0.0",
+  "description": "Inspect and selectively clear storage for the current website.",
+  "minimum_chrome_version": "96",
+  "permissions": [
+    "activeTab",
+    "browsingData",
+    "cookies",
+    "scripting"
+  ],
+  "action": {
+    "default_title": "ClearCache",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  }
+}

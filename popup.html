@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ClearCache</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main class="app" aria-labelledby="app-title">
+      <header class="app-header">
+        <div class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false">
+            <path d="M4 7h16M6 7l1 13h10l1-13M9 7V4h6v3M9.5 11v5M14.5 11v5"/>
+          </svg>
+        </div>
+        <div class="title-group">
+          <h1 id="app-title">ClearCache</h1>
+          <p id="site-label">正在读取当前网站...</p>
+        </div>
+        <button id="refresh-button" class="icon-button" type="button" aria-label="重新统计" title="重新统计">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M20 12a8 8 0 1 1-2.34-5.66L20 8M20 4v4h-4"/>
+          </svg>
+        </button>
+      </header>
+
+      <div id="notice" class="notice" role="status" aria-live="polite" hidden></div>
+
+      <section class="storage-section" aria-labelledby="storage-title">
+        <div class="section-heading">
+          <h2 id="storage-title">站点数据</h2>
+          <button id="select-all-button" class="text-button" type="button">全选</button>
+        </div>
+        <div id="storage-list" class="storage-list" aria-busy="true"></div>
+      </section>
+
+      <footer class="action-bar">
+        <label class="reload-option">
+          <input id="reload-after-clear" type="checkbox">
+          <span>清理后刷新页面</span>
+        </label>
+        <button id="clear-button" class="primary-button" type="button" disabled>
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M4 7h16M10 11v5M14 11v5M6 7l1 13h10l1-13M9 7V4h6v3"/>
+          </svg>
+          <span>清除所选数据</span>
+        </button>
+      </footer>
+    </main>
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>
