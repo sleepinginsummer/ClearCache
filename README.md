@@ -36,7 +36,7 @@ npm run check
 | `activeTab` | 用户点击扩展后临时读取当前网站的统计信息 |
 | `scripting` | 在当前页面统计或清理页面级存储 |
 | `browsingData` | 按当前 origin 清理所选浏览数据 |
-| `cookies` | 统计当前 URL 可访问的 Cookie，包括 `HttpOnly` Cookie |
+| `cookies` | 统计当前主机各路径可访问的 Cookie，包括 `HttpOnly` Cookie |
 | `http://*/*`、`https://*/*` | 允许 Cookie API 查询任意当前网站；数据仍只在弹窗打开时读取 |
 
 扩展不会上传、同步或远程保存任何网站数据。

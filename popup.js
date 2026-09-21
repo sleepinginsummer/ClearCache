@@ -259,7 +259,7 @@ async function readStatistics() {
         world: "MAIN",
         func: inspectPageStorage
       }),
-      chrome.cookies.getAll({ url: pageContext.url })
+      chrome.cookies.getAll({ domain: pageContext.hostname })
         .then((cookies) => ({ available: true, count: cookies.length }))
         .catch((error) => {
           console.error("ClearCache: Cookie 统计失败", error);
