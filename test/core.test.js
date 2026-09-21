@@ -48,7 +48,10 @@ test("Manifest 使用最小权限集合并包含图标", async () => {
     "cookies",
     "scripting"
   ]);
-  assert.equal(manifest.host_permissions, undefined);
+  assert.deepEqual(manifest.host_permissions.sort(), [
+    "http://*/*",
+    "https://*/*"
+  ]);
 
   for (const iconPath of Object.values(manifest.icons)) {
     const icon = await readFile(new URL(iconPath, projectRoot));
