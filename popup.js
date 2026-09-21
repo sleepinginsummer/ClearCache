@@ -136,7 +136,7 @@ function formatStatistic(id, metric) {
       state: hasData ? "present" : "empty",
       text: hasData
         ? `有 · ${metric.cacheCount} 库 / ${metric.entryCount} 项`
-        : "无 · 0 库 / 0 项"
+        : "0 库 / 0 项"
     };
   }
 

@@ -31,9 +31,9 @@ test("buildRemovalData 仅保留 browsingData 支持的类型", () => {
   );
 });
 
-test("统计文案区分有、无和无法统计", () => {
+test("统计文案区分有数据、零数据和无法统计", () => {
   assert.equal(formatMetric({ available: true, count: 3 }, "个"), "有 · 3 个");
-  assert.equal(formatMetric({ available: true, count: 0 }, "个"), "无 · 0 个");
+  assert.equal(formatMetric({ available: true, count: 0 }, "个"), "0 个");
   assert.equal(formatMetric({ available: false, reason: "无法统计" }), "无法统计");
   assert.equal(getMetricState({ available: true, count: 1 }), "present");
   assert.equal(getMetricState({ available: true, count: 0 }), "empty");
